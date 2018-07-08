@@ -1,24 +1,21 @@
-# README
+# Client Database
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails 5 application implementing a rudimentary Client database application.
+Created to teach myself Ruby on Rails
 
-Things you may want to cover:
+The application is implemented using these components:
 
-* Ruby version
+* Ruby version 2.5.1
+* Rails version 5.2.0
+* AdminLTE version 2 (latest version)
+* PostgreSQL version 9.5.13
+* SweetAlert2 
 
-* System dependencies
+## Configuration
+The initial database can be created with 
+```
+rake db:setup
+```
+This will create the database tables and populate the tables with some sample data.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This description will be updated as the project continues.
