@@ -1,0 +1,12 @@
+<div class="callout">
+    <div>
+        <div class="pull-right">
+            <span class="text-muted"><i class="fa fa-clock-o"></i><%= client_note.user.firstname %> <% client_note.user.lastname %></span>
+            <span onclick="Note.edit('<?= Yii::t('app', 'Edit Note') ?>',<?= $model->id ?>)" class="text-muted" data-toggle="tooltip" title="<?= Yii::t('app', 'Edit Note') ?>">&nbsp;<i class="fa fa-pencil"></i></span>
+            <span onclick="Note.remove('<?= Yii::t('app', 'Delete Note') ?>',<?= $model->id ?>)" class="text-muted" data-toggle="tooltip" title="<?= Yii::t('app', 'Delete Note') ?>">&nbsp;<i class="fa fa-trash-o"></i></span>
+        </div>
+    </div>
+    <p>
+        <%= client_note.text %>
+    </p>
+</div>

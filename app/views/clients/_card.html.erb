@@ -1,0 +1,43 @@
+<div class="client-view">
+    <div class="col-md-6">
+        <b>Name and Address</b>
+        <br>
+        <%= @client.name %>
+        <br>
+        <%= @client.address; %>
+        <br>
+        <%= @client.zip + " " + @client.city %>
+        <br>
+        <br>
+        <b>VAT Registration Number</b>
+        <br>
+        <%= @client.cvr %>
+        <br>
+    </div>
+
+
+    <div class="col-md-6">
+        <b>Client Number</b>
+        <br>
+        <%= @client.id %><br>
+        <br>
+        <b>Client Type</b>
+        <br>
+        <%= @client.clienttype_text %><br>
+        <br>
+        <b>Contact Info</b>
+        <br>
+        <i class="fa fa-phone fa-fw"></i><%= @client.phone1 %>
+        <br>
+        <% if !@client.phone2.blank? %>
+            <i class='fa fa-phone fa-fw'></i><%= @client.phone2 %><br>
+        <% end %>
+        <i class="fa fa-envelope fa-fw"></i> <a href="mailto:<%= @client.email %>"><%= @client.email %></a>
+        <br>
+        <% if !@client.website.blank? %>
+            <i class="fa fa-globe fa-fw"></i><a href="<%= @client.website %>"><%= @client.website %></a><br>
+        <% end %>
+        <br>
+    </div>
+
+</div>

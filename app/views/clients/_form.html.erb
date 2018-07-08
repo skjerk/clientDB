@@ -1,0 +1,63 @@
+<%= form_with model: @client, local: true do |form| %>
+ 
+  <% if @client.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@client.errors.count, "error") %> prohibited
+        this client from being saved:
+      </h2>
+      <ul>
+        <% @client.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :cvr %><br>
+    <%= form.text_field :cvr, class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :address %><br>
+    <%= form.text_field :address, class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :zip %><br>
+    <%= form.text_field :zip, class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :city %><br>
+    <%= form.text_field :city, class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :phone1 %><br>
+    <%= form.text_field :phone1, class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :phone2 %><br>
+    <%= form.text_field :phone2, class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email, class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :website %><br>
+    <%= form.text_field :website, class: "form-control" %>
+  </p>
+
+  <p>  
+    <%= form.label :clienttype %><br>
+    <%= form.collection_select :clienttype_text, Clienttype.all, :text, :text, {}, {:class=>'form-control'} %>
+  </p>
+  
+  <p>
+    <%= form.submit class: "btn btn-default" %>
+  </p>
+ 
+<% end %>

@@ -1,0 +1,48 @@
+<% flash.each do |type, message| %>
+      <div><%= message %></div>
+<% end %>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Client Types</h3>
+    <div class="input-group input-group-sm" style="width: 150px;">
+      <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+      <div class="input-group-btn">
+        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </div> <!-- /.box-header -->
+
+  <div class="box-body table-responsive no-padding">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Text</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @clienttypes.each do |clienttype| %>
+          <tr>
+            <td><%= clienttype.id %></td>
+            <td><%= clienttype.text %></td>
+            <td style='text-align:right;'>
+              <%= link_to '<i class="fa fa-eye"></i>'.html_safe, clienttype %>&nbsp;
+              <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_clienttype_path(clienttype) %>&nbsp;
+              <%= link_to '<i class="fa fa-trash"></i>'.html_safe,
+                clienttype,
+                method: :delete,
+                data: {confirm_swal: 'Are you sure?'}
+              %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div> <!-- /.box-body -->
+
+</div> <!-- /.box -->
+ 
+<%= link_to "Add New Client Type", new_clienttype_path %>

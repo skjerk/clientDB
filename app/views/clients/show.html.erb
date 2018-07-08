@@ -1,0 +1,52 @@
+<div class="client-overview">
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Client data</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <!--<span onclick="Client.openmodal()" data-toggle="modal" data-target="#page-modal" >-->
+                    <span onclick="Client.edit('<%= 'Edit Client' %>')">
+                        <button class="btn btn-box-tool"  data-toggle="tooltip" title="Edit Client"><i class="fa fa-pencil"></i></button>
+                    </span>
+                </div><!-- /.box-tools -->
+            </div><!-- /.box-header -->
+            <div class="box-body" id="client-card">
+                <%= render "card" %>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Contacts</h3>
+                <div class="box-tools pull-right">
+                    <!--<span data-toggle="modal" data-target="#page-modal" >-->
+                    <span onclick="Contact.add('Add Contact')">
+                        <button class="btn btn-box-tool" data-toggle="tooltip" title="Add Contact"><i class="fa fa-plus"></i></button>
+                    </span>
+                </div><!-- /.box-tools -->
+            </div><!-- /.box-header -->
+            <div class="box-body" id="contacts">
+                <div class="box-group" id="accordion">
+                    <%= render @client.contacts %>
+                </div><!-- /.box-group -->
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!-- /.col -->
+
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Notes</h3>
+                <div class="box-tools pull-right">
+                    <span onclick="Note.add('Add Note')">
+                        <button class="btn btn-box-tool" data-toggle="tooltip" title="Add Note" ><i class="fa fa-plus"></i></button>
+                    </span>
+                </div><!-- /.box-tools -->
+            </div><!-- /.box-header -->
+            <div class="box-body notes">
+                <%= render @client.notes %>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>

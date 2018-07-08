@@ -1,0 +1,43 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Notes</h3>
+    <div class="input-group input-group-sm" style="width: 150px;">
+      <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+      <div class="input-group-btn">
+        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </div> <!-- /.box-header -->
+
+  <div class="box-body table-responsive no-padding">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Client</th>
+          <th>User</th>
+          <th>Text</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @notes.each do |note| %>
+          <tr>
+            <td><%= note.id %></td>
+            <td><%= note.client.name %></td>
+            <td><%= note.user.firstname note.user.lastname %></td>
+            <td><%= note.text %></td>
+            <td style='text-align:right;'>
+              <%= link_to '<i class="fa fa-eye"></i>'.html_safe, note %>&nbsp;
+              <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_note_path(note) %>&nbsp;
+              <%= link_to '<i class="fa fa-trash"></i>'.html_safe, note, method: :delete, data: { confirm: "Are you sure?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div> <!-- /.box-body -->
+
+</div> <!-- /.box -->
+ 
+<%= link_to "Add New Note", new_note_path %>
